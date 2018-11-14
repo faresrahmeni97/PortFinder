@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class creerCompteActivity extends AppCompatActivity {
     public EditText username;
@@ -32,12 +33,8 @@ public class creerCompteActivity extends AppCompatActivity {
     valider.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            myDB.insertData(username.getText().toString(),
-                    password.getText().toString(),
-                    nom.getText().toString(),
-                    prenom.getText().toString(),
-                    adresse.getText().toString(),
-                    datenaiss.getText().toString());
+            myDB.insertData("45","45","45","54","546","466");
+
         }
     });
 

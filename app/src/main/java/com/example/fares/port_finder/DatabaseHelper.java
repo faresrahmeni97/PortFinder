@@ -2,6 +2,7 @@ package com.example.fares.port_finder;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.Nullable;
@@ -27,6 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("create table "+TABLE_NAME+"(ID INTEGER PRIMARY KEY AUTOINCREMENT,USERNAME TEXT," +
                 "PASSWORD TEXT,NOM TEXT,PRENOM TEXT,ADRESSE TEXT,DATENAISS DATE)");
 
+
     }
     public boolean insertData(String username,String password,String nom,String prenom,String adresse,String datenaiss) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -42,6 +44,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
         else
             return true;
+    }
+    public boolean checkLogin(String username, String password) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+
+        Cursor c = db.rawQuery( "SELECT * FROM utilisateur_table t WHERE t.username = '"+ username + "' AND t.password = '" + password+"'", null);
+
+        if(c.getCount() <= 0) {
+            c.close();
+            db.close();
+            return false;
+        } else {
+            c.close();
+            db.close();
+            return true;
+        }
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

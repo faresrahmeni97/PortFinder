@@ -10,6 +10,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     DatabaseHelper myDB;
     public Button button;
+    public Button button2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +22,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,creerCompteActivity.class);
                 startActivity(intent);
+                button = findViewById(R.id.creercompte);
             }
         });
     }
+
 }
