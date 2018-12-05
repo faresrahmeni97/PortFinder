@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.fares.port_finder">
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-feature android:name="android.hardware.bluetooth" />
+
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_PRIVILEGED"
+        tools:ignore="ProtectedPermissions" />
 
     <application
         android:allowBackup="true"
@@ -14,18 +24,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashScreen"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".Login.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".creerCompteActivity" />
-        <activity android:name=".HomePageActivity"
-            ></activity>
+        <activity android:name=".Login.LoginActivity" />
+        <activity android:name=".Login.creerCompteActivity" />
+        <activity android:name=".HomePageActivity" />
+        <activity
+            android:name=".navTestActivity"
+            android:label="@string/title_activity_nav_test"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".HomePage.MainActivity" />
+        <activity android:name=".HomePage.DeviceActivity"></activity>
     </application>
 
 </manifest>

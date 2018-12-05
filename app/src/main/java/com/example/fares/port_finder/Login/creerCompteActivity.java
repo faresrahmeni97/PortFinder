@@ -1,13 +1,12 @@
-package com.example.fares.port_finder;
+package com.example.fares.port_finder.Login;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.fares.port_finder.R;
 
 public class creerCompteActivity extends AppCompatActivity {
     public EditText username;
