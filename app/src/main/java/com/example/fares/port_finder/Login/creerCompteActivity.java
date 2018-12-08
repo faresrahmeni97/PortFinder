@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.fares.port_finder.R;
 
@@ -32,8 +33,13 @@ public class creerCompteActivity extends AppCompatActivity {
     valider.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            myDB.insertData("45","45","45","54","546","466");
-
+            if(myDB.checkLogin(username.getText().toString(),password.getText().toString())){
+                Toast.makeText(getApplicationContext(),"Compte Existant",Toast.LENGTH_SHORT).show();
+            }else{
+            myDB.insertData(username.getText().toString(),password.getText().toString(),
+            nom.getText().toString(),prenom.getText().toString(),adresse.getText().toString(),datenaiss.getText().toString());
+            Toast.makeText(getApplicationContext(),"Compte Creer avec succes",Toast.LENGTH_SHORT).show();
+            finish();}
         }
     });
 

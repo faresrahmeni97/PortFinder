@@ -33,11 +33,6 @@
         </activity>
         <activity android:name=".Login.LoginActivity" />
         <activity android:name=".Login.creerCompteActivity" />
-        <activity android:name=".HomePageActivity" />
-        <activity
-            android:name=".navTestActivity"
-            android:label="@string/title_activity_nav_test"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".HomePage.MainActivity" />
         <activity android:name=".HomePage.DeviceActivity"></activity>
     </application>

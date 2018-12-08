@@ -3,46 +3,52 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Login.creerCompteActivity">
+    android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
+        android:layout_marginRight="20dp"
+        android:orientation="vertical">
+
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center" />
+
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Username"
             android:id="@+id/username"
-            android:layout_marginTop="50dp"/>
-        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:hint="Username" />
+
+        <EditText
             android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
             android:hint="Password"
-            android:layout_marginBottom="50dp"/>
+            android:inputType="textPassword"/>
+
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/nom"
-            android:hint="Nom"
-            />
-        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Nom" />
+
+        <EditText
             android:id="@+id/prenom"
-            android:hint="Prenom"/>
-        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Prenom" />
+
+        <EditText
             android:id="@+id/adresse"
-            android:hint="Adresse"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Adresse" />
 
         <EditText
             android:id="@+id/datenaiss"
@@ -50,29 +56,28 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="date"
-            tools:text="@tools:sample/date/ddmmyy"
-            />
+            tools:text="@tools:sample/date/ddmmyy" />
 
         <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:gravity="center">
-    <Button
-        android:layout_width="150dp"
-        android:layout_height="match_parent"
-        android:layout_marginHorizontal="10dp"
-        android:text="Valider"
-        android:id="@+id/valider"
-        />
-    <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-        android:layout_height="match_parent"
-        android:layout_width="150dp"
-        android:text="annuler"
-        android:id="@+id/annuler"
-        />
-</LinearLayout>
+            <Button
+                android:id="@+id/valider"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:text="Valider" />
+
+            <Button
+
+                android:id="@+id/annuler"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:text="annuler" />
+        </LinearLayout>
     </LinearLayout>
 
 

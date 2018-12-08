@@ -4,7 +4,9 @@ import android.app.Dialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,6 +16,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fares.port_finder.R;
@@ -33,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     DeviceListAdapter deviceListAdapter;
     private ListView pairedListView;
     private ArrayList<BluetoothDevice> paireditems = new ArrayList<>();
+    FloatingActionButton fab;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -48,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         deviceListAdapter = new DeviceListAdapter(getApplicationContext(),
                 R.layout.device_adapter_view, paireditems);
+        TextView txtdistance = findViewById(R.id.distance);
         loadPairedDevices();
         //-----------------Refresh--------------------------
         swipeRefreshLayout = findViewById(R.id.swiperefresh);
@@ -59,13 +64,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //----------------------------------------------------
-        Button btAdd=(Button)findViewById(R.id.btAdd);
-        btAdd.setOnClickListener(new View.OnClickListener() {
+       fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                //Intent i = new Intent(MainActivity.this,ScanActivity.class);
-                // startActivityForResult(i,RES);
-                Intent intentOpenBluetoothSettings = new Intent();
+            public void onClick(View view) {
+               Intent intentOpenBluetoothSettings = new Intent();
                 intentOpenBluetoothSettings.setAction(android.provider.Settings.ACTION_BLUETOOTH_SETTINGS);
                 startActivityForResult(intentOpenBluetoothSettings,RES);
 
