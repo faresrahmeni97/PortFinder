@@ -31,6 +31,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
     public boolean insertData(String username,String password,String nom,String prenom,String adresse,String datenaiss) {
+        if(username.equals("")||password.equals("")||nom.equals("")||prenom.equals("")||adresse.equals("")||datenaiss.equals("")){
+            return false;
+        }else{
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2,username);
@@ -45,10 +48,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else
             return true;
     }
+    }
     public boolean checkLogin(String username, String password) {
         SQLiteDatabase db = this.getWritableDatabase();
-
-
+if(username.equals("")||password.equals("")){
+    return false;
+}
         Cursor c = db.rawQuery( "SELECT * FROM utilisateur_table t WHERE t.username = '"+ username + "' AND t.password = '" + password+"'", null);
 
         if(c.getCount() <= 0) {

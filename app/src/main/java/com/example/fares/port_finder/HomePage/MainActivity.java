@@ -98,11 +98,13 @@ public class MainActivity extends AppCompatActivity {
                 String address = paireditems.get(position).getAddress();
                 String name = paireditems.get(position).getName();
                 Intent i = new Intent(MainActivity.this, DeviceActivity.class);
-                i.putExtra(EXTRA_ADDRESS, address);
+                i.putExtra("ADDRESS", address);
                 i.putExtra(EXTRA_NOM,name);
+
                 startActivity(i);
             }
         });
+
         pairedListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
             @Override
             public boolean onItemLongClick(AdapterView<?> av, View v, int pos, long id)
@@ -118,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
         dialog.setTitle(paireditems.get(pos).getName());
         dialog.setContentView(R.layout.input_box);
         Button btdel=(Button)dialog.findViewById(R.id.btdel);
+        Button btann=(Button)dialog.findViewById(R.id.annulation);
         final BluetoothDevice device = paireditems.get(pos);
         btdel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,6 +138,12 @@ public class MainActivity extends AppCompatActivity {
                 dialog.dismiss();
 
                 Toast.makeText(getApplicationContext(),"Suppression Valider",Toast.LENGTH_SHORT).show();
+            }
+        });
+        btann.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
             }
         });
 

@@ -7,17 +7,33 @@
     android:orientation="vertical"
     android:layout_margin="20dp"
 >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center">
+
     <ImageView
-        android:layout_width="150dp"
+        android:layout_width="56dp"
         android:layout_height="145dp"
         android:layout_gravity="center"
         android:layout_margin="20dp"
-       />
+        android:src="@drawable/ic_bluetooth_audio_black_24dp" />
+
+    <ImageView
+        android:layout_width="55dp"
+        android:layout_height="145dp"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:src="@drawable/ic_vpn_key_black_24dp" />
+
+</LinearLayout>
     <EditText
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nom utilisateur"
+        android:text="fares"
         android:layout_marginTop="50dp"
         android:drawableLeft="@drawable/ic_perm_identity_black_24dp"
         android:id="@+id/username"/>
@@ -25,6 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Mot de passe"
+        android:text="fares"
         android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
         android:inputType="textPassword"
         android:id="@+id/password"/>
@@ -47,7 +64,7 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:drawableRight="@drawable/ic_person_add_black_24dp"
+            android:drawableRight="@drawable/ic_person_add"
             android:gravity="center"
             android:background="@drawable/button_white"
             android:text="Sing up"

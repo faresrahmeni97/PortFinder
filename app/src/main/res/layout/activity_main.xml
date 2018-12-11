@@ -5,11 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Liste des Appareils Bluetooths :"
+    android:id="@+id/txtblue"
+    android:textSize="16dp"/>
     <android.support.v4.widget.SwipeRefreshLayout
         android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:id="@+id/swiperefresh">
+        android:id="@+id/swiperefresh"
+        android:layout_below="@id/txtblue">
         <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -17,6 +17,7 @@ public class creerCompteActivity extends AppCompatActivity {
     public EditText adresse;
     public EditText datenaiss;
     public Button valider;
+    public Button Annuler;
     DatabaseHelper myDB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,16 +31,26 @@ public class creerCompteActivity extends AppCompatActivity {
         adresse = findViewById(R.id.adresse);
         datenaiss = findViewById(R.id.datenaiss);
     valider = findViewById(R.id.valider);
+    Annuler = findViewById(R.id.annuler);
     valider.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             if(myDB.checkLogin(username.getText().toString(),password.getText().toString())){
                 Toast.makeText(getApplicationContext(),"Compte Existant",Toast.LENGTH_SHORT).show();
             }else{
-            myDB.insertData(username.getText().toString(),password.getText().toString(),
-            nom.getText().toString(),prenom.getText().toString(),adresse.getText().toString(),datenaiss.getText().toString());
-            Toast.makeText(getApplicationContext(),"Compte Creer avec succes",Toast.LENGTH_SHORT).show();
-            finish();}
+           if(myDB.insertData(username.getText().toString(),password.getText().toString(),
+                   nom.getText().toString(),prenom.getText().toString(),adresse.getText().toString(),datenaiss.getText().toString())) {
+               Toast.makeText(getApplicationContext(), "Compte Creer avec succes", Toast.LENGTH_SHORT).show();
+               finish();
+           }else
+               Toast.makeText(getApplicationContext(),"Champ vide",Toast.LENGTH_SHORT).show();
+            }
+        }
+    });
+    Annuler.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            finish();
         }
     });
 

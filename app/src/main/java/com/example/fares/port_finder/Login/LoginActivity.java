@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
                 }
                 else
-                    Toast.makeText(getApplicationContext(),"incorrect",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Compte ou mot de passe Incorrect",Toast.LENGTH_SHORT).show();
             }
         });
         button2.setOnHoverListener(new View.OnHoverListener() {
